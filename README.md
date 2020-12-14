@@ -1,4 +1,4 @@
-# Moonshot Game
+# Moshot Game
 
 [![Site preview](/public/social-image.png)](https://moshot.web.app/)
 
