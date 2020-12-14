@@ -1,0 +1,47 @@
+{
+  "name": "moshot",
+  "version": "0.1.0",
+  "homepage": "https://moshot.web.app/",
+  "description": "An intense, action-packed cross-platform, WebXR-ready space game created with three.js for the 2020 Github Game-Off competition.",
+  "repository": "https://github.com/moses555/moshot.git",
+  "author": "Moses Lee <hi@mosesl.co>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.14.0",
+    "eslint-webpack-plugin": "^2.4.1",
+    "file-loader": "^6.0.0",
+    "glslify-loader": "^2.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "prettier": "^2.2.1",
+    "prettier-webpack-plugin": "^1.2.0",
+    "raw-loader": "^4.0.1",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-webpack-plugin": "^2.1.1",
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.4.0"
+  },
+  "dependencies": {
+    "gsap": "^3.5.1",
+    "three": "^0.123.0"
+  },
+  "scripts": {
+    "start": "webpack serve --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
+    "deploy": "firebase deploy --only hosting",
+    "serve": "firebase serve --only hosting",
+    "lint": "eslint src --fix",
+    "format": "prettier src --write"
+  }
+}

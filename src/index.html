@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <script>
+      if (navigator.doNotTrack !== '1') {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-F40H8JDYN5';
+        script.async = true;
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-F40H8JDYN5');
+      }
+    </script>
+
+    <title>Moshot Game</title>
+    <meta
+      name="description"
+      content="An intense, action-packed cross-platform, WebXR-ready space game created with three.js for the 2020 Github Game-Off competition."
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#CD5C5C" />
+    <meta name="author" content="Cody Bennett" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon-256.png" />
+    <link type="text/plain" rel="author" href="/humans.txt" />
+
+    <meta property="og:image" content="https://moonshot.codyb.co/social-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+
+    <meta property="og:title" content="Moshot Game" />
+    <meta property="og:site_name" content="moonshot.codyb.co" />
+    <meta property="og:url" content="https://moonshot.codyb.co" />
+    <meta
+      property="og:description"
+      content="An intense, action-packed cross-platform, WebXR-ready space game created with three.js for the 2020 Github Game-Off competition."
+    />
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:description"
+      content="An intense, action-packed cross-platform, WebXR-ready space game created with three.js for the 2020 Github Game-Off competition."
+    />
+    <meta name="twitter:title" content="Moshot Game" />
+    <meta name="twitter:site" content="@CodyJasonB" />
+    <meta name="twitter:image" content="https://moonshot.codyb.co/social-image.png" />
+  </head>
+
+  <body>
+    <div class="game"></div>
+    <section class="info">
+      <div class="info__column">
+        <div class="info__section info__section--text">
+          <p class="info__paragraph info__paragraph--bold">
+            Blast through a volley of asteroids from a crumbling moon, caused by a mission
+            gone wrong.
+          </p>
+          <p class="info__paragraph">
+            How many can you blow apart? Put on your virtual reality headset and pick up
+            your hand controllers. You’ll need them if you want to survive.
+          </p>
+        </div>
+        <div class="info__section">
+          <h2 class="info__label">Instructions</h2>
+          <div class="info__illustration">
+            <img
+              class="icon icon--fadein"
+              alt="Oculus Touch trigger released"
+              src="assets/trigger-released.svg"
+            />
+            <img
+              class="icon icon--fadeout"
+              alt="Oculus Touch trigger pressed"
+              src="assets/trigger-pressed.svg"
+            />
+            <img class="icon" alt="Oculus Touch trigger" src="assets/trigger-base.svg" />
+          </div>
+          <p class="info__paragraph">
+            Pull your trigger to blast photon bolts at deadly asteroids.
+          </p>
+          <div class="info__illustration">
+            <img class="icon" alt="Oculus Touch grip" src="assets/grip-base.svg" />
+            <img
+              class="icon icon--fadeout"
+              alt="Oculus Touch grip released"
+              src="assets/grip-released.svg"
+            />
+            <img
+              class="icon icon--fadein"
+              alt="Oculus Touch grip pressed"
+              src="assets/grip-pressed.svg"
+            />
+          </div>
+          <p class="info__paragraph">
+            Press your side grips to activate thruster boost. Careful: you may be going
+            faster than you think.
+          </p>
+        </div>
+      </div>
+      <div class="info__column">
+        <div class="info__section">
+          <h2 class="info__label">Requirements</h2>
+          <p class="info__paragraph">
+            You’ll need a position-tracking virtual reality rig with two hand controllers,
+            and a WebXR-capable browser. Here’s what
+            <span class="info__logo"> Mo<strong>shot</strong> </span>
+            has been tested to run on:
+          </p>
+          <table class="compatability-table">
+            <tr>
+              <td></td>
+              <td>
+                <a
+                  class="info__anchor"
+                  target="_blank"
+                  href="https://oculus.com/rift"
+                  rel="noreferrer nofollow"
+                  aria-label="Oculus Quest"
+                >
+                  <svg class="icon" viewBox="0 0 600 600">
+                    <path
+                      d="M509.473,173.887c-19.019-15.264-40.776-25.807-64.457-31.501c-13.562-3.261-27.127-4.71-41.017-5.164
+                      c-10.285-0.336-20.566-0.242-30.851-0.242c-48.765,0-97.53,0-146.294,0c-10.289,0-20.574-0.094-30.863,0.243
+                      c-13.899,0.455-27.47,1.906-41.039,5.172c-23.677,5.698-45.43,16.245-64.444,31.51C52.264,204.607,29.995,250.958,30,300.015
+                      c0.005,49.056,22.28,95.402,60.528,126.098c19.019,15.264,40.776,25.807,64.457,31.501c13.562,3.261,27.127,4.71,41.017,5.164
+                      c10.285,0.336,20.566,0.242,30.851,0.242c48.765,0,97.529,0,146.294,0c10.289,0,20.574,0.094,30.863-0.242
+                      c13.899-0.455,27.47-1.906,41.039-5.172c23.677-5.698,45.43-16.245,64.444-31.51c38.243-30.703,60.511-77.053,60.506-126.111
+                      C569.995,250.929,547.72,204.583,509.473,173.887z M438.065,343.872c-7.213,4.965-15.198,7.953-23.789,9.347
+                      c-8.586,1.393-17.12,1.121-25.717,1.121c-59.04,0-118.079,0-177.119,0c-8.603,0-17.144,0.273-25.736-1.124
+                      c-8.596-1.397-16.587-4.392-23.801-9.366c-14.451-9.963-23.127-26.287-23.118-43.877c0.009-17.584,8.696-33.895,23.149-43.844
+                      c7.212-4.965,15.198-7.953,23.789-9.347c8.586-1.393,17.12-1.121,25.717-1.121c59.04,0,118.079,0,177.119,0
+                      c8.603,0,17.144-0.273,25.736,1.124c8.596,1.397,16.587,4.392,23.801,9.366c14.45,9.963,23.127,26.288,23.117,43.877
+                      C461.205,317.611,452.518,333.922,438.065,343.872z"
+                    />
+                  </svg>
+                  <br />Oculus
+                </a>
+              </td>
+              <td>
+                <a
+                  class="info__anchor"
+                  target="_blank"
+                  href="https://vive.com"
+                  rel="noreferrer nofollow"
+                  aria-label="HTC Vive"
+                >
+                  <svg class="icon" viewBox="0 0 600 600">
+                    <path
+                      d="M565.281,425.478L365.216,79.148c-6.285-10.87-17.889-17.584-30.455-17.584h-69.574c-12.557,0-24.174,6.714-30.468,17.584
+                        L34.714,425.495c-6.285,10.879-6.285,24.281,0,35.169l34.735,60.189c6.281,10.887,17.902,17.584,30.468,17.584h400.118
+                        c12.561,0,24.179-6.689,30.464-17.584l34.774-60.189C571.574,449.776,571.574,436.374,565.281,425.478 M395.387,458.929
+                        c-30.112,9.505-62.163,14.631-95.43,14.631c-33.211,0-65.263-5.117-95.353-14.613c-35.25-11.093-56.999-46.829-49.413-82.976
+                        c13.798-65.787,47.979-124.07,95.671-167.927c27.819-25.569,70.385-25.587,98.199-0.017
+                        c47.692,43.858,81.907,102.123,95.714,167.91C452.347,412.083,430.625,447.802,395.387,458.929"
+                    />
+                  </svg>
+                  <br />Vive
+                </a>
+              </td>
+              <td>
+                <a
+                  class="info__anchor"
+                  target="_blank"
+                  href="https://microsoft.com/en-us/windows/windows-mixed-reality"
+                  rel="noreferrer nofollow"
+                  aria-label="Windows Mixed Reality"
+                >
+                  <svg class="icon" viewBox="0 0 600 600">
+                    <path
+                      d="M273.719,368.875c17.219-5.438,30.812-19.031,35.344-36.25c5.438-21.75,9.062-45.312,9.062-68.875
+                        c0-30.812-6.344-60.719-17.219-87.906c-29-1.812-59.812-2.719-91.531-2.719C98.812,173.125,10,197.594,10,227.5
+                        c0,68.875,26.281,131.406,67.969,176.719c2.719,2.719,5.438,4.531,9.062,4.531c5.438,0,9.062-3.625,9.062-9.062v-9.062
+                        c0-5.438,3.625-9.062,9.062-9.062c9.062,0,17.219,3.625,22.656,9.062s13.594,9.062,22.656,9.062
+                        c19.938,0,39.875-2.719,58.906-9.062L273.719,368.875z"
+                    />
+                    <path
+                      d="M320.844,176.75c9.969,28.094,15.406,57.094,15.406,87c116.906,0,235.625,21.75,235.625,63.438
+                        c0,16.312-17.219,29-45.312,38.969C565.531,359.812,590,348.937,590,336.25v-72.5C590,222.969,476.719,188.531,320.844,176.75z"
+                    />
+                    <path
+                      d="M503.906,300c-54.375,11.781-109.656,18.125-167.656,18.125c-1.812,0-3.625,0-5.438,0
+                        c-0.906,6.344-2.719,12.688-4.531,19.031c-2.719,11.781-9.062,21.75-17.219,30.812c22.656,1.812,47.125,2.719,71.594,3.625
+                        c114.188-5.438,173.094-29.906,173.094-44.406C553.75,319.938,536.531,309.062,503.906,300z"
+                    />
+                  </svg>
+                  <br />Win MR
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  class="info__anchor"
+                  target="_blank"
+                  href="https://mozilla.org/firefox"
+                  rel="noreferrer nofollow"
+                  aria-label="Mozilla Firefox"
+                >
+                  <svg class="icon" viewBox="0 0 600 600">
+                    <path
+                      d="M580.058,224.729l-6.504,41.736c0,0-9.301-77.269-20.699-106.156
+                      c-17.47-44.263-25.242-43.907-25.292-43.843c11.7,29.735,9.579,45.709,9.579,45.709s-20.731-56.501-75.545-74.477
+                      c-64.917-21.279-97.986-13.588-97.74-13.292c0.246,0.301,67.093,11.686,78.947,27.975c0,0-28.394,0-56.652,8.142
+                      c-1.277,0.365,103.966,13.146,125.482,118.312c0,0-11.536-24.07-25.803-28.157c9.383,28.545,6.974,82.711-1.961,109.631
+                      c-1.149,3.462-2.326-14.966-19.928-22.902c5.638,40.4-0.338,104.477-28.367,122.129c-2.185,1.373,17.57-63.256,3.973-38.269
+                      c-78.283,120.027-170.826,55.391-212.431,26.94c21.321,4.641,61.798-0.724,79.715-14.05c0.018-0.014,0.036-0.027,0.054-0.04
+                      c19.464-13.307,30.987-23.028,41.335-20.727c10.354,2.313,17.246-8.078,9.205-17.297c-8.051-9.237-27.601-21.931-54.047-15.011
+                      c-18.651,4.885-41.763,25.521-77.045,4.625c-27.079-16.044-29.629-29.373-29.869-38.606c0.669-3.272,1.511-6.328,2.51-9.119
+                      c3.117-8.706,12.57-11.332,17.826-13.405c8.917,1.532,16.601,4.312,24.668,8.451c0.104-2.686,0.139-6.25-0.009-10.292
+                      c0.773-1.539,0.294-6.173-0.944-11.836c-0.715-5.656-1.877-11.507-3.704-16.837c0.006-0.002,0.01-0.006,0.016-0.007
+                      c0.03-0.01,0.059-0.022,0.085-0.039c0.043-0.025,0.08-0.061,0.114-0.103c0.008-0.011,0.018-0.019,0.025-0.031
+                      c0.045-0.068,0.084-0.149,0.107-0.255c0.47-2.127,4.802-5.914,10.629-10.185c7.645-5.602,17.859-12.036,25.305-16.651
+                      c5.05-3.129,8.829-5.423,9.67-6.051c0.34-0.256,0.747-0.557,1.19-0.9c0.079-0.061,0.16-0.124,0.242-0.188
+                      c0.054-0.043,0.107-0.084,0.162-0.129c3.073-2.449,7.714-7.15,8.411-17.252c0.006-0.082,0.011-0.165,0.016-0.247
+                      c0.041-0.656,0.068-1.33,0.074-2.032c0.002-0.176-0.002-0.359-0.003-0.538c-0.003-0.594-0.016-1.203-0.045-1.831
+                      c-0.005-0.12-0.002-0.229-0.009-0.35c-0.029-0.546-0.068-1.039-0.158-1.489c-0.008-0.039-0.016-0.078-0.024-0.117
+                      c-0.008-0.037-0.017-0.074-0.026-0.11c-0.021-0.085-0.044-0.169-0.071-0.25c-0.001-0.002-0.002-0.004-0.002-0.007
+                      c-1.109-3.427-7.021-3.845-44-3.697c-18.278,0.074-28.365-17.908-31.56-24.803c4.414-24.377,17.184-41.728,38.119-53.51
+                      c0.396-0.224,0.317-0.407-0.151-0.537c4.094-2.476-49.506-0.068-74.159,31.287c-21.902-5.443-40.996-5.082-57.445-1.216
+                      c-3.148-0.093-7.061-0.487-11.702-1.453c-10.93-9.906-26.577-28.198-27.416-50.035c0,0-0.051,0.039-0.138,0.11
+                      c-0.011-0.209-0.032-0.415-0.04-0.626c0,0-33.307,25.598-28.321,95.386c-0.013,1.116-0.035,2.187-0.066,3.222
+                      c-9.015,12.227-13.492,22.51-13.823,24.778c-7.987,16.261-16.09,40.732-22.684,77.878c0,0,4.612-14.629,13.87-31.195
+                      c-6.809,20.858-12.159,53.297-9.017,101.955c0,0,0.831-10.788,3.771-26.328c2.297,30.176,12.353,67.432,37.774,111.242
+                      c48.792,84.105,123.791,126.574,206.689,133.091c14.75,1.217,29.709,1.243,44.756,0.097c1.348-0.096,2.695-0.195,4.045-0.308
+                      c16.991-1.192,34.096-3.758,51.163-7.881C605.419,506.364,580.058,224.729,580.058,224.729z"
+                    />
+                  </svg>
+                  <br />Firefox
+                </a>
+              </td>
+              <td>
+                <svg class="icon" viewBox="0 0 600 600">
+                  <path
+                    d="M222.556,478.722C242.778,462,284,434,284,434c35.778-70,135.333-238,266-337.556l-12.444-15.167
+                    c-177.333,108.5-287,290.5-287,290.5s-27.222-83.224-63.349-83.224c-28.428,0-57.206,35.002-57.206,35.002
+                    C183.667,336.778,221.475,468.032,222.556,478.722z"
+                  />
+                </svg>
+              </td>
+              <td>?</td>
+              <td>?</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  class="info__anchor"
+                  target="_blank"
+                  href="https://google.com/chrome"
+                  rel="noreferrer nofollow"
+                  aria-label="Google Chrome"
+                >
+                  <svg class="icon" viewBox="0 0 600 600">
+                    <path
+                      d="M75.169,150.445C123.564,77.836,206.196,30,300,30c98.44,0,184.576,52.682,231.753,131.39L300,160
+                        c-76.317,0-138.372,61.065-139.968,136.999L75.169,150.445z"
+                    />
+                    <path
+                      d="M282.897,569.487C195.819,563.88,113.075,516.237,66.173,435c-49.22-85.252-46.665-186.189-2.09-266.399L178.756,370
+                        c38.159,66.092,122.069,89.301,188.629,52.717L282.897,569.487z"
+                    />
+                    <path
+                      d="M541.934,180.068c38.684,78.216,38.795,173.695-8.107,254.932c-49.22,85.252-137.912,133.507-229.663,135.009L421.244,370
+                        c38.159-66.092,16.302-150.366-48.66-189.716L541.934,180.068z"
+                    />
+                    <circle display="inline" cx="300" cy="300" r="120" />
+                  </svg>
+                  <br />Chrome
+                </a>
+              </td>
+              <td>
+                <svg class="icon" viewBox="0 0 600 600">
+                  <path
+                    d="M222.556,478.722C242.778,462,284,434,284,434c35.778-70,135.333-238,266-337.556l-12.444-15.167
+                    c-177.333,108.5-287,290.5-287,290.5s-27.222-83.224-63.349-83.224c-28.428,0-57.206,35.002-57.206,35.002
+                    C183.667,336.778,221.475,468.032,222.556,478.722z"
+                  />
+                </svg>
+              </td>
+              <td>?</td>
+              <td>?</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  class="info__anchor"
+                  target="_blank"
+                  href="https://microsoft.com/windows/microsoft-edge"
+                  rel="noreferrer nofollow"
+                  aria-label="Microsoft Edge"
+                >
+                  <svg class="icon" viewBox="0 0 600 600">
+                    <path
+                      d="M206.348,350.418c0,12.941,1.933,24.705,5.882,35.293c4.202,10.42,9.664,19.747,16.638,27.898
+                      c6.975,8.151,15.125,15.125,24.705,21.008c9.243,5.882,19.327,10.756,30.083,14.537c10.672,3.865,21.848,6.722,33.192,8.571
+                      c11.512,1.849,22.688,2.773,34.032,2.773c14.285,0,27.562-1.092,40.167-3.361c12.605-2.353,24.873-5.462,36.973-9.411
+                      c12.1-3.949,23.781-8.655,35.461-14.033c11.764-5.378,23.697-11.26,35.965-17.814v113.945
+                      c-13.697,6.722-27.142,12.352-40.587,17.226c-13.445,4.706-26.89,8.823-40.587,12.1c-13.697,3.361-27.562,5.882-41.763,7.395
+                      c-14.201,1.513-28.738,2.353-43.864,2.353c-20.167,0-39.662-2.353-58.401-6.975s-36.301-11.26-52.771-19.999
+                      c-16.47-8.739-31.511-19.327-45.208-31.763c-13.781-12.437-25.461-26.47-35.293-42.015c-9.832-15.546-17.394-32.604-22.856-50.922
+                      c-5.294-18.319-7.983-37.814-7.983-58.485c0-22.1,3.025-43.108,9.075-63.191c6.134-20.167,14.789-38.486,26.217-55.292
+                      c11.344-16.806,25.209-31.764,41.595-44.788s34.789-23.697,55.292-31.932c-11.176,11.176-19.915,24.369-26.049,39.746
+                      c-6.302,15.294-10.252,30.671-12.016,46.049h191.421c0-19.327-1.933-36.133-5.882-50.586c-3.949-14.453-10.252-26.47-19.075-35.965
+                      c-8.739-9.579-19.999-16.806-33.864-21.512c-13.865-4.79-30.587-7.227-50.166-7.227c-23.108,0-46.217,3.361-69.325,10.336
+                      c-23.108,6.722-45.04,16.386-65.88,28.57c-20.84,12.352-39.999,26.89-57.477,43.528c-17.478,16.806-32.184,34.873-44.116,54.452
+                      c2.521-22.688,7.563-44.536,14.537-65.292s16.218-40.083,27.31-57.981c11.092-17.646,24.117-33.78,38.99-48.233
+                      s31.343-26.89,49.578-36.973s37.562-18.235,58.569-23.697c21.008-4.79,43.36-7.647,66.888-7.647c13.781,0,27.478,1.26,41.175,3.697
+                      c13.697,2.521,27.058,5.882,40.083,10.252c25.881,8.907,48.99,21.344,69.325,37.141c20.335,15.966,37.394,34.116,51.259,54.872
+                      c13.865,20.756,24.369,43.696,31.595,68.653c7.227,24.957,10.924,50.922,10.924,77.896v66.804L206.348,350.418L206.348,350.418z"
+                    />
+                  </svg>
+                  <br />Edge
+                </a>
+              </td>
+              <td>
+                <svg class="icon" viewBox="0 0 600 600">
+                  <path
+                    d="M222.556,478.722C242.778,462,284,434,284,434c35.778-70,135.333-238,266-337.556l-12.444-15.167
+                    c-177.333,108.5-287,290.5-287,290.5s-27.222-83.224-63.349-83.224c-28.428,0-57.206,35.002-57.206,35.002
+                    C183.667,336.778,221.475,468.032,222.556,478.722z"
+                  />
+                </svg>
+              </td>
+              <td>?</td>
+              <td>?</td>
+            </tr>
+          </table>
+        </div>
+        <div class="info__section">
+          <h2 class="info__label">About</h2>
+          <p class="info__paragraph">
+            <span class="info__logo"> Mo<strong>shot</strong> </span>
+            is a cross-platform, WebXR-ready space game created with
+            <a
+              class="info__anchor"
+              href="https://threejs.org"
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              three.js
+            </a>
+            for the
+            <a> 2020 Github Game-Off competition. </a>
+          </p>
+          <p class="info__paragraph">
+            Asteroid model by
+            <a
+              class="info__anchor"
+              href="https://sketchfab.com/3d-models/stylized-lowpoly-rock-6e476441b5614231bf4e8de194c418d9"
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              Bull Studios
+            </a>
+            and spaceship model by
+            <a
+              class="info__anchor"
+              href="https://sketchfab.com/3d-models/delta-break-renault-s-t1-dab401ce6ec649a29ee0856051a111c2"
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              TheMuffinCoder.
+            </a>
+            All other assets by
+            <a
+              class="info__anchor"
+              href="https://mo-portfolio-f6439.web.app/"
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              Moses.
+            </a>
+          </p>
+          <p class="info__paragraph">
+            <a
+              class="info__anchor"
+              href="https://github.com/CodyJasonBennett/moonshot"
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              View Soruce
+            </a>
+            &nbsp;
+          </p>
+          <p class="info__paragraph">
+            &copy; <span id="year">2020</span>
+            <a
+              class="info__anchor"
+              href="https://mo-portfolio-f6439.web.app/"
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              Moses Lee
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
